@@ -10,8 +10,8 @@ import numpy as np
 def scraping(typename):
     if not os.path.exists("dataset"):
         os.mkdir("dataset")
-    if not os.path.exists("dataset" + typename):
-        os.mkdir("dataset" + typename)
+    if not os.path.exists("dataset/" + typename):
+        os.mkdir("dataset/" + typename)
 
     count = 0
     for i in range(0, 99):
@@ -38,7 +38,7 @@ def scraping(typename):
                     
                     name_file = str(count)
                         
-                    out = open("dataset"+ typename + "/" + name_file.zfill(4) + ".jpg", "wb")
+                    out = open("dataset/"+ typename + "/" + name_file.zfill(4) + ".jpg", "wb")
                     out.write(picture.content)
                     out.close()
 
