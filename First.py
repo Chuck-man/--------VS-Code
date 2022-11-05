@@ -16,7 +16,7 @@ def scraping(typename):
     count = 0
     for i in range(0, 99):
 
-        if not typename == "cat":
+        if typename != "cat":
             url = f"https://yandex.ru/images/search?p={i}&text=dog&uinfo=sw-1920-sh-1080-ww-912-wh-881-pd-1.100000023841858-wp-16x9_2560x1440&lr=51&rpt=image"
         else:
             url = f"https://yandex.ru/images/search?p={i}&text=cat&uinfo=sw-1920-sh-1080-ww-878-wh-924-pd-1-wp-16x9_1920x1080&lr=51&rpt=image"
@@ -49,6 +49,5 @@ def scraping(typename):
                 except Exception as ex:
                     print(ex)
 
-
 scraping("cat")
-
+scraping("dog")
