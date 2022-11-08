@@ -7,7 +7,8 @@ import time
 import cv2
 import numpy as np
 
-def scraping(typename):
+
+def scraping(typename, index = None):
     if not os.path.exists("dataset"):
         os.mkdir("dataset")
     if not os.path.exists("dataset/" + typename):
@@ -48,6 +49,52 @@ def scraping(typename):
 
                 except Exception as ex:
                     print(ex)
+                    
+def is_similar(image1, image2):
+    return image1.shape == image2.shape and not(np.bitwise_xor(image1, image2).any())
+
+def check_images(typename):
+    path = "dataset/"+ typename
+
+    images = []
+    images2 = []
+    for file_name in os.listdir(path):
+        images.append((cv2.imread(os.path.join(path, file_name)),
+                      os.path.join(path, file_name)))
+
+        images2.append((cv2.imread(os.path.join(path, file_name)),
+                        os.path.join(path, file_name)))
+
+    indexs = []
+    for im, fname in images:
+        for im2, fname2 in images2:
+            if(fname == fname2):
+                continue
+
+            if is_similar(im, im2):
+                print(fname, fname2)
+
+                try:
+                    os.remove(fname)
+                except Exception as e:
+                    print(e)
+
+                temp = fname.replace(f"{path}\\", "")
+                temp = temp.replace(".jpg", "")
+                indexs.append(int(temp))
+
+                try:
+                    images2.remove(fname2)
+                except Exception:
+                    continue
+
+    return indexs
 
 scraping("cat")
 scraping("dog")
+
+indexs = check_images("cat")
+scraping("cat", indexs)
+
+indexs1 = check_images("dog")
+scraping("dog", indexs1)
