@@ -84,7 +84,7 @@ def check_images(typename):
                 indexs.append(int(temp))
 
                 try:
-                    images2.remove(fname2)
+                    images2.remove(fname)
                 except Exception:
                     continue
 
