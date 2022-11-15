@@ -1,11 +1,13 @@
 #Лабораторная работа 1
-import re
-from bs4 import BeautifulSoup
-import requests
 import os
+import re
 import time
+
 import cv2
 import numpy as np
+import requests
+from bs4 import BeautifulSoup
+from PIL import Image, ImageChops
 
 
 def scraping(typename, index = None):
