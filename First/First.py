@@ -7,7 +7,6 @@ import cv2
 import numpy as np
 import requests
 from bs4 import BeautifulSoup
-from PIL import Image, ImageChops
 
 
 def scraping(typename, index = None):
