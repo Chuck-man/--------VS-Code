@@ -8,10 +8,10 @@ def creating_csv(path, path_to):
         source_info = os.listdir(path + "/" + i)
         for j in source_info:
             absolute = os.path.abspath(path + "/" + i + "/" + j)
-            relative = os.path.relpath(path + "/" + i + "/" + j)
-            data.append([absolute, relative, i])
+            regarding = os.path.relpath(path + "/" + i + "/" + j)
+            data.append([absolute, regarding, i])
     with open(path_to + ".csv", "w", newline="") as file:
-        writer = csv.writer(file, delimiter=",")
+        writer = csv.writer(file, delimiter=";")
         writer.writerows(data)
 
 creating_csv("dataset")
