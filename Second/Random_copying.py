@@ -14,5 +14,11 @@ def Randomizer(path, path_copier):
             rand = random.randint(0, 10000)
             value = str(rand)
             shutil.copyfileobj(os.path.join(path, i + "/" + j), os.path.join(path_copier + "/", value + ".jpg"))
+            absolute = os.path.abspath(path + "/" + i + "/" + j)
+            regarding = os.path.relpath(path + "/" + i + "/" + j)
+            data.append([absolute, regarding, i])
+    with open(path_copier + ".csv", "w", newline="") as file:
+        writer = csv.writer(file, delimiter=";")
+        writer.writerows(data)
 
-Randomizer("dataset")
+Randomizer("dataset/")
