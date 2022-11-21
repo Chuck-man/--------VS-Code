@@ -22,5 +22,4 @@ class Iterator:
             return self.data[i]
         else:
             raise StopIteration
-    
-    
+
