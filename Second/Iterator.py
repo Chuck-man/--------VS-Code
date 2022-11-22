@@ -1,7 +1,7 @@
 import csv
 
 class Iterator:
-    def __init__(self, label, file) -> None:
+    def __init__(self, label: str, file: str) -> None:
         self.label = label
         self.file = file
         self.score = 0

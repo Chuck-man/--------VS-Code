@@ -1,11 +1,11 @@
 import csv
 import os
 
-def creating_csv(path, path_to) -> None:
+def creating_csv(path: str, path_new: str) -> None:
     data = []
 
-    if not os.path.exists("path_to"):
-        os.mkdir("path_to")
+    if not os.path.exists("path_new"):
+        os.mkdir("path_new")
     
     source = os.listdir(path + "/")
     for i in source:
@@ -14,7 +14,7 @@ def creating_csv(path, path_to) -> None:
             absolute = os.path.abspath(path + "/" + i + "/" + j)
             regarding = os.path.relpath(path + "/" + i + "/" + j)
             data.append([absolute, regarding, i])
-    with open(path_to + ".csv", "w", newline="") as file:
+    with open(path_new + ".csv", "w", newline="") as file:
         writer = csv.writer(file, delimiter=";")
         writer.writerows(data)
 
