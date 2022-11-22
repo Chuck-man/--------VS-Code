@@ -2,12 +2,11 @@ import csv
 import os
 
 def creating_csv(path: str, path_new: str) -> None:
-    data = []
 
-    if not os.path.exists("path_new"):
-        os.mkdir("path_new")
+    data = []
     
     source = os.listdir(path + "/")
+    
     for i in source:
         source_info = os.listdir(path + "/" + i)
         for j in source_info:
