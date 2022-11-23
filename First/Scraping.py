@@ -9,7 +9,8 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def scraping(typename: str, index: int):
+def scraping(typename: str, indexs: int):
+
     if not os.path.exists("dataset"):
         os.mkdir("dataset")
     if not os.path.exists("dataset/" + typename):
@@ -94,11 +95,16 @@ def check_images(typename: str):
 
     return indexs
 
-scraping("cat")
-scraping("dog")
+def main():
 
-indexs = check_images("cat")
-scraping("cat", indexs)
+    scraping("cat")
+    scraping("dog")
 
-indexs1 = check_images("dog")
-scraping("dog", indexs1)
+    indexs = check_images("cat")
+    scraping("cat", indexs)
+
+    indexs1 = check_images("dog")
+    scraping("dog", indexs1)
+
+if __name__ == "__main__":
+    main()
