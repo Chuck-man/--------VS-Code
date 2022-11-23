@@ -2,6 +2,8 @@ import csv
 import os
 
 def creating_csv(path: str, path_new: str) -> None:
+    
+    """Функция принимает путь к файлам: path и путь к новой директории: path_new"""
 
     data = []
     
@@ -17,4 +19,8 @@ def creating_csv(path: str, path_new: str) -> None:
         writer = csv.writer(file, delimiter=";")
         writer.writerows(data)
 
-creating_csv("dataset", "dataset_csv")
+def main():
+    creating_csv("dataset", "dataset_csv")
+
+if __name__ == "__main__":
+    main()

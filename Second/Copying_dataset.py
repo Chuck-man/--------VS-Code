@@ -2,7 +2,9 @@ import os
 import shutil
 import csv
 
-def copy(path: str, path_copier: str):
+def copying_dataset(path: str, path_copier: str):
+
+    """Функция принимает путь к файлам: path и путь к новой директории: path_new"""
 
     if not os.path.exists("dataset_copier"):
         os.mkdir("dataset_copier")
@@ -23,4 +25,8 @@ def copy(path: str, path_copier: str):
         writer = csv.writer(file, delimiter=";")
         writer.writerows(data)
 
-copy("dataset", "dataset_copier")
+def main():
+    copying_dataset("dataset", "dataset_copier")
+
+if __name__ == "__main__":
+    main()

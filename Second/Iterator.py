@@ -1,6 +1,8 @@
 import csv
 
 class Iterator:
+
+    """Класс итератор - задаётся итерируемый объект и датасет"""
     def __init__(self, label: str, file: str) -> None:
         self.label = label
         self.file = file
@@ -23,6 +25,12 @@ class Iterator:
         else:
             raise StopIteration
 
-instance = Iterator("cat", "dataset_csv.csv")
-print(next(instance))
-print(next(instance))
+def main():
+    instance = Iterator("cat", "dataset_csv.csv")
+    print(next(instance))
+    print(next(instance))
+    print(next(instance))
+    print(next(instance))
+
+if __name__ == "__main__":
+    main()

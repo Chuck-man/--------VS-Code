@@ -3,7 +3,9 @@ import shutil
 import random
 import csv
 
-def Randomizer(path: str, path_copier: str):
+def random_copying(path: str, path_copier: str):
+
+    """Функция принимает путь к файлам: path и путь к новой директории: path_new"""
 
     if not os.path.exists("dataset_another"):
         os.mkdir("dataset_another")
@@ -30,4 +32,8 @@ def Randomizer(path: str, path_copier: str):
         writer = csv.writer(file, delimiter=";")
         writer.writerows(data)
 
-Randomizer("dataset", "dataset_another")
+def main():
+    random_copying("dataset", "dataset_another")
+
+if __name__ == "__main__":
+    main()
